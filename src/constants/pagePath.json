@@ -1,0 +1,8 @@
+{
+  "root": "/",
+  "login": "/login",
+  "test": "/test",
+  "home": {
+    "root": "/home"
+  }
+}
