@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+import PATH from "./constants/pagePath.json";
+import Home from "./pages/Home";
+import Test from "./pages/Test";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface IRoute {
+  path: string;
+  component: () => JSX.Element;
 }
+
+interface IPages {
+  main: IRoute[];
+  board: IRoute[];
+}
+
+const PAGES: IPages = {
+  main: [
+    { path: PATH.root, component: Home },
+    { path: PATH.test, component: Test },
+  ],
+  board: [],
+};
+
+const App = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      {PAGES.main.map((item, index) => (
+        <Route
+          key={`main-board-${index}`}
+          path={item.path}
+          element={<item.component />}
+        />
+      ))}
+      )
+    </>
+  )
+);
 
 export default App;
