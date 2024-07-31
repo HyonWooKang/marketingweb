@@ -1,0 +1,39 @@
+@charset 'UTF-8';
+
+:root {
+  --accent-color: #f3ff87;
+  --text-color: #f0f4f5;
+  --background-color: #0b002b;
+}
+
+.main-container {
+  margin: 0;
+  font-family: "Montserrat";
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 8px 12px;
+
+    .nav_logo {
+    }
+
+    .navbar__menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding-left: 0;
+
+      li {
+        padding: 8px 30px;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+    }
+  }
+}
